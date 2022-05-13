@@ -10,18 +10,20 @@ public class Model implements Parcelable {
     private String inTime;
     private String outTime;
     private String location;
+    private String date;
 
     public Model(){
 
     }
 
-    public Model(String name, String contact, String vnumber, String inTime, String outTime, String location) {
+    public Model(String name, String contact, String vnumber, String inTime, String outTime, String location, String date) {
         this.name = name;
         this.contact = contact;
         this.vnumber = vnumber;
         this.inTime = inTime;
         this.outTime = outTime;
         this.location = location;
+        this.date = date;
     }
 
     protected Model(Parcel in) {
@@ -31,6 +33,7 @@ public class Model implements Parcelable {
         inTime = in.readString();
         outTime = in.readString();
         location = in.readString();
+        date = in.readString();
     }
 
     public static final Creator<Model> CREATOR = new Creator<Model>() {
@@ -44,6 +47,14 @@ public class Model implements Parcelable {
             return new Model[size];
         }
     };
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 
     public String getLocation() {
         return location;
@@ -110,6 +121,7 @@ public class Model implements Parcelable {
         parcel.writeString(inTime);
         parcel.writeString(outTime);
         parcel.writeString(location);
+        parcel.writeString(date);
     }
 }
 

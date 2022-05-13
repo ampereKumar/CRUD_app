@@ -81,6 +81,20 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_below="@id/Vnumber" />
     <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/bdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginEnd="25dp"
+        android:ems="10"
+        android:hint="Enter the booking date"
+        android:inputType="datetime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_below="@id/Cnumber" />
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/intime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -88,12 +102,12 @@
         android:layout_marginStart="28dp"
         android:layout_marginEnd="25dp"
         android:ems="10"
-        android:hint="Enter the time in 24:00 format"
+        android:hint="Enter the time in 12:00 format"
         android:inputType="time"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_below="@id/Cnumber" />
+        android:layout_below="@id/bdate" />
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/outtime"
         android:layout_width="match_parent"
@@ -102,7 +116,7 @@
         android:layout_marginStart="28dp"
         android:layout_marginEnd="25dp"
         android:ems="10"
-        android:hint="Enter the time in 24:00 format"
+        android:hint="Enter the time in 12:00 format"
         android:inputType="time"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"

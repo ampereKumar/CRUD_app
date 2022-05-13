@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
 //     EditText etSource,etDestination;
 //     Button btTrack;
-    private TextInputEditText Name, Vnumber, Cnumber, location, inTime, outTime;
+    private TextInputEditText Name, Vnumber, Cnumber, location, inTime, outTime, date;
    // private TextView location;
     private Button next;
     private FirebaseDatabase firebaseDatabase;
@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         Name= findViewById(R.id.Name);
         Cnumber = findViewById(R.id.Cnumber);
         Vnumber = findViewById(R.id.Vnumber);
+        date = findViewById(R.id.bdate);
         inTime = findViewById(R.id.intime);
         outTime = findViewById(R.id.outtime);
         location = findViewById(R.id.location);
@@ -55,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
                 String name= Name.getText().toString();
                 String contact= Cnumber.getText().toString();
                 String vnumber= Vnumber.getText().toString();
+                String bdate = date.getText().toString();
                 String iTime = inTime.getText().toString();
                 String oTime = outTime.getText().toString();
                 parkingModel = getIntent().getParcelableExtra("Locations");
@@ -67,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                 databaseReference2 = firebaseDatabase.getReference("Locations").child(parkingid);
 
                 user= name;
-                Model Model= new Model(name, contact, vnumber, iTime, oTime, parkingl);
+                Model Model= new Model(name, contact, vnumber, iTime, oTime, parkingl,bdate);
 
                 databaseRefernce.addValueEventListener(new ValueEventListener() {
                     @Override
