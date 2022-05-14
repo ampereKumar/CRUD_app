@@ -32,7 +32,7 @@ public class Parking extends AppCompatActivity {
         etSource = findViewById(R.id.et_source);
        // etDestination = findViewById(R.id.et_destination);
         btTrack = findViewById(R.id.bt_track);
-       // pname = findViewById(R.id.pname);
+        //pname = findViewById(R.id.pname);
         parkingModel = getIntent().getParcelableExtra("Locations");
         if(parkingModel!=null) {
             pname = parkingModel.getPname();
@@ -40,14 +40,14 @@ public class Parking extends AppCompatActivity {
             parkingid = parkingModel.getParkingid();
         }
 
-       // databaseReference = firebaseDatabase.getReference("Locations").child(parkingid);
+        databaseReference = firebaseDatabase.getReference("Locations").child(pname);
 
         btTrack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //String desc = pname.getText().toString();
+                String desc = pname.toString();
                 String sSource = etSource.getText().toString().trim();
-                DisplayTrack(sSource,pname);
+                DisplayTrack(sSource,desc);
             }
         });
     }

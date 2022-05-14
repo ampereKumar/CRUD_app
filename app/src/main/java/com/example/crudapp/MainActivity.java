@@ -76,7 +76,9 @@ public class MainActivity extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         databaseRefernce.child(user).setValue(Model);
                         Toast.makeText(MainActivity.this, "Details Saved", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(MainActivity.this, Parking.class));
+                        Intent i = new Intent(MainActivity.this, Parking.class);
+                        i.putExtra("Locations", parkingModel);
+                        startActivity(i);
                     }
 
                     @Override
