@@ -21,12 +21,16 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class MainActivity extends AppCompatActivity {
 
 //     EditText etSource,etDestination;
 //     Button btTrack;
-    private TextInputEditText Name, Vnumber, Cnumber, location, inTime, outTime, date;
-   // private TextView location;
+    private TextInputEditText Name, Vnumber, Cnumber, inTime, outTime, date;
+    private TextView location,avail;
+    private int navail;
     private Button next;
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference databaseRefernce, databaseReference2;
@@ -62,10 +66,30 @@ public class MainActivity extends AppCompatActivity {
                 parkingModel = getIntent().getParcelableExtra("Locations");
                 if(parkingModel!=null) {
                     location.setText(parkingModel.getPname());
-//                    avail.setText(parkingModel.getAvail());
+                    avail.setText(parkingModel.getAvail());
                     parkingid = parkingModel.getParkingid();
                 }
                 String parkingl= location.getText().toString();
+//                String availu = avail.getText().toString();
+//                int upavail= Integer.valueOf(availu);
+//                upavail = upavail -1 ;
+//                availu = String.valueOf(upavail);
+//                Map<String,Object> map = new HashMap<>();
+//                map.put("avail", availu);
+//                databaseRefernce.addValueEventListener(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        databaseRefernce.updateChildren(map);
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
+
+
+
                 databaseReference2 = firebaseDatabase.getReference("Locations").child(parkingid);
 
                 user= name;
