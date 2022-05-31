@@ -66,7 +66,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_below="@id/location" />
+        android:layout_below="@id/textView3" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/Vnumber"
