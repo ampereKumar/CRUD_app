@@ -9,14 +9,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -34,6 +38,7 @@ public class ParkingList extends AppCompatActivity implements parkinglistadapter
     private ArrayList<parkingModel> parkingModelArrayList;
     private RelativeLayout bottomsheetRL;
     private parkinglistadapter parkinglistadapter;
+    private FirebaseAuth mauth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +49,7 @@ public class ParkingList extends AppCompatActivity implements parkinglistadapter
         databaseReference = firebaseDatabase.getReference("Locations");
         parkingModelArrayList = new ArrayList<>();
         bottomsheetRL = findViewById(R.id.idRlBSheet);
+        mauth= FirebaseAuth.getInstance();
         parkinglistadapter = new parkinglistadapter(parkingModelArrayList, this,this);
         lists.setLayoutManager(new LinearLayoutManager(this));
         lists.setAdapter(parkinglistadapter);
@@ -128,5 +134,26 @@ public class ParkingList extends AppCompatActivity implements parkinglistadapter
 //                startActivity(i);
 //            }
 //        });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        switch(id) {
+            case R.id.Logout:
+                Toast.makeText(this, "Log out successfull", Toast.LENGTH_SHORT).show();
+                mauth.signOut();
+                Intent i = new Intent(ParkingList.this,LoginActivity.class);
+                startActivity(i);
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

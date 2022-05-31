@@ -66,30 +66,10 @@ public class MainActivity extends AppCompatActivity {
                 parkingModel = getIntent().getParcelableExtra("Locations");
                 if(parkingModel!=null) {
                     location.setText(parkingModel.getPname());
-                    avail.setText(parkingModel.getAvail());
+//                    avail.setText(parkingModel.getAvail());
                     parkingid = parkingModel.getParkingid();
                 }
                 String parkingl= location.getText().toString();
-//                String availu = avail.getText().toString();
-//                int upavail= Integer.valueOf(availu);
-//                upavail = upavail -1 ;
-//                availu = String.valueOf(upavail);
-//                Map<String,Object> map = new HashMap<>();
-//                map.put("avail", availu);
-//                databaseRefernce.addValueEventListener(new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                        databaseRefernce.updateChildren(map);
-//                    }
-//
-//                    @Override
-//                    public void onCancelled(@NonNull DatabaseError error) {
-//
-//                    }
-//                });
-
-
-
                 databaseReference2 = firebaseDatabase.getReference("Locations").child(parkingid);
 
                 user= name;

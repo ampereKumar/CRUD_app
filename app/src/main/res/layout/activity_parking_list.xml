@@ -7,10 +7,22 @@
     android:background="@color/yellow"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/admindash"
+        android:layout_marginTop="25dp"
+        android:textAlignment="center"
+        android:textSize="25dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:text="Welcome to the Dashboard"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/admindash"
+        android:layout_marginTop="42dp"
         android:id="@+id/List"/>
 <!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
 <!--        android:layout_width="wrap_content"-->
